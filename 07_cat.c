@@ -11,7 +11,7 @@ main(int argc, char *argv[])
     exit(1);
   }
 
-      while (fgets(s, 256,fin) != NULL) {
+  while (fgets(s, 256,fin) != NULL) {
     printf("%s",s);
   }
 
