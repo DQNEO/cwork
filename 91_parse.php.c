@@ -6,30 +6,26 @@ int main(int argc, char *argv[])
 {
 
   FILE *fin;
-  char s[256];
-
   if ((fin = fopen(argv[1], "r")) == NULL) {
     printf("cannot open file\n");
     exit(1);
   }
 
+  char lines[256][256];
+
   int current_line = 0;
-  char *lines[256];
 
-  while (fgets(s, 256,fin) != NULL) {
-    current_line++;
-    lines[current_line] = &s;
+  while (fgets(lines[current_line++], 256,fin) != NULL) {
   }
-
-  //printf("%s\n", lines[2]);
-  
-
-  int i;
-  for (i = 1;i<=current_line;i++) {
-    //printf("%d: %s\n",i, lines[i]);
-  }
-
-
   fclose(fin);
+  int i;
+
+  int line_num  = 3;
+  for (i = 2;i<=line_num;i++) {
+    printf("%s", lines[i]);
+  }
 
 }
+
+
+  
