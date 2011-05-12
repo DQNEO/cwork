@@ -13,15 +13,28 @@ int main(int argc, char *argv[])
   }
 
   int current_line = 0;
+  char sentence[256];
+
   while (fgets(s, 256,fin) != NULL) {
     current_line++;
 
     if (current_line <= 2) {
       continue;
     }
-    printf("%s",s);
 
+    int cursor = 0;
+    char c;
+    char sentence[256];
+    while (s[cursor] != ';' ) {
+      sentence[cursor] = s[cursor];
+      //printf("%c", sentence[cursor]);
+      cursor++;
+    }
+    sentence[cursor] = 0;
+
+    printf("%s\n", sentence);
   }
+
 
   fclose(fin);
 
