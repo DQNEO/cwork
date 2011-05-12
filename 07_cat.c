@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> /* exit */
-main(int argc, char *argv[])
+
+int main(int argc, char *argv[])
 {
 
   FILE *fin;
