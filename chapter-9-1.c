@@ -1,5 +1,5 @@
+/* ポインタの働き */
 #include <stdio.h>
-
 main()
 {
   int a,b;
