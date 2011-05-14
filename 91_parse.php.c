@@ -20,8 +20,9 @@ int main(int argc, char *argv[])
   fclose(fin);
   int i;
 
-  int line_num  = 3;
-  for (i = 2;i<=line_num;i++) {
+  int line_num  = current_line;
+  int start_lineno = 2;
+  for (i = start_lineno;i<=line_num;i++) {
     printf("%s", lines[i]);
   }
 
