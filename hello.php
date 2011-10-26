@@ -1,4 +1,6 @@
 #!/usr/bin/php
 <?php
-echo 'hellophp';
-echo 'bonjour';
+echo 'helloecho';
+print 'bonjoourprint';
+$x = 'foo';
+echo $x;

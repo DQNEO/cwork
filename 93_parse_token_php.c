@@ -25,7 +25,6 @@ int main(int argc, char* argv[])
       int j;
       for(j=1; j<strlen(tokens[1]) -1 ; j++) {
         echo_string[j-1] = tokens[1][j];
-        //printf("%c", echo_string[j-1]);
       }
       echo_string[j] = 0;
 
