@@ -1,4 +1,5 @@
 #include <stdio.h>
+/* 文字列の配列を扱うサンプルコード */
 main()
 {
     char Meibo[5][20] = {"apple", "mango", "orange", "banana", "mikan" } ;
