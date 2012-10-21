@@ -1,7 +1,8 @@
 #!/bin/bash
-
+# コンパイル＆実行をしてくれるスクリプト
+# 使い方：run hello.c
 FILENAME=$1
-gcc $FILENAME && ./a.out $2
+gcc $FILENAME && ./a.out $@
 
 
 
