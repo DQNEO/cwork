@@ -1,7 +1,7 @@
 #include <stdio.h>
 main()
 {
-  char Meibo[5][20] = {"apple", "mango", "orange", "doragon fruites", "mikan" } ;
+  char Meibo[5][20] = {"apple", "mango", "orange", "banana", "mikan" } ;
 
   printf("%s\n", &Meibo[0][0]);
   printf("%s\n", &Meibo[1][0]);
