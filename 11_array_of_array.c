@@ -1,7 +1,11 @@
 #include <stdio.h>
-/* 文字列の配列を扱うサンプルコード */
+/**
+ *   文字列の配列を扱うサンプルコード
+ */
 main()
 {
+    /* 文字列の配列を初期化 */
+    /* 20ってのがちょっとダサイので何とかしたい */
     char Meibo[5][20] = {"apple", "mango", "orange", "banana", "mikan" } ;
 
     printf("%s\n", &Meibo[0][0]);
