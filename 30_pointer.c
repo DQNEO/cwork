@@ -10,7 +10,13 @@ main()
 
     int *p;
     p = &a;
-    printf("p = %d\n", (int)p);
+    printf("p = %p\n", p);
     printf("*p = %d\n", *p);
+
+    a = 8;
+    printf("*p = %d\n", *p);
+
+    *p = 9;
+    printf(" a = %d\n", a);
 }
 
