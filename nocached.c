@@ -19,6 +19,7 @@
 /* buffer length */
 #define BUF_LEN 256
 
+
 /* 
    read a line from socket,
    store it to a variable 'p'
@@ -53,6 +54,7 @@ int read_line(int socket, char *p){
 
 void out_string(int socket, char *str) {
   write(socket, str, strlen(str));
+  write(socket, "\n", 1);
 }
 
 int main(int argc, char *argv[]){
@@ -124,19 +126,35 @@ int main(int argc, char *argv[]){
     while (1){
       int read_size;
       char command[BUF_LEN];
-
+      char content[BUF_LEN];
+      
       read_size = read_line(sfd, command);
       if ( read_size == 0 ) break;
 
 
       if (strncmp(command,"set ",4) == 0) {
-	out_string(sfd, "STORED\n");
+	char key[251];
+	int flags;
+	time_t expire;
+	int len,res;
+	res = sscanf(command, "%*s %250s %u %ld %d\n", key, &flags, &expire, &len);
+	if (res!=4 || strlen(key)==0 ) {
+	  out_string(sfd, "CLIENT_ERROR bad command line format");
+	  continue;
+	}
+
+	// get content
+	read_size = read_line(sfd, content);
+	if ( read_size == 0 ) break;
+	//out_string(sfd, content);
+	out_string(sfd, "STORED");
       } else if (strncmp(command, "get ", 4) ==0) {
-	out_string(sfd, "END\n");
+	out_string(sfd, content);
+	out_string(sfd, "END");
       } else if (strncmp(command, "delete ", 7) ==0) {
-	out_string(sfd, "DELETED\n");
+	out_string(sfd, "DELETED");
       } else {
-	out_string(sfd, "UNKNOWN COMMAND\n");
+	out_string(sfd, "UNKNOWN COMMAND");
       }
       
     }
