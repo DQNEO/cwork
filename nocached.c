@@ -123,17 +123,17 @@ int main(int argc, char *argv[]){
 
     while (1){
       int read_size;
-      char buf[BUF_LEN];
+      char command[BUF_LEN];
 
-      read_size = read_line(sfd, buf);
+      read_size = read_line(sfd, command);
       if ( read_size == 0 ) break;
 
 
-      if (strncmp(buf,"set ",4) == 0) {
+      if (strncmp(command,"set ",4) == 0) {
 	out_string(sfd, "STORED\n");
-      } else if (strncmp(buf, "get ", 4) ==0) {
+      } else if (strncmp(command, "get ", 4) ==0) {
 	out_string(sfd, "END\n");
-      } else if (strncmp(buf, "delete ", 7) ==0) {
+      } else if (strncmp(command, "delete ", 7) ==0) {
 	out_string(sfd, "DELETED\n");
       } else {
 	out_string(sfd, "UNKNOWN COMMAND\n");
