@@ -4,7 +4,7 @@
 #include <string.h>
 
 /* 構造体の宣言 */
-struct Man {
+struct People {
   char name[32];
   int age;
 };
@@ -12,7 +12,7 @@ struct Man {
 int main() {
 
   /* 構造体の宣言 */
-  struct Man student;
+  struct People student;
 
   /* 構造体のメンバに値を設定する */
   strcpy(student.name, "Picachu");
