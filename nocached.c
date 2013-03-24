@@ -128,9 +128,17 @@ int main(int argc, char *argv[]){
       read_size = read_line(sfd, buf);
       if ( read_size == 0 ) break;
 
+
+      if (strncmp(buf,"set ",4) == 0) {
+	out_string(sfd, "STORED\n");
+      } else if (strncmp(buf, "get ", 4) ==0) {
+	out_string(sfd, "END\n");
+      } else if (strncmp(buf, "delete ", 7) ==0) {
+	out_string(sfd, "DELETED\n");
+      } else {
+	out_string(sfd, "UNKNOWN COMMAND\n");
+      }
       
-      //output
-      out_string(sfd, "STORED\n");
     }
 
     printf("client connection closed.\n");
