@@ -133,7 +133,7 @@ int main(int argc, char *argv[]){
       out_string(sfd, "STORED\n");
     }
 
-    printf("connection closed. listening port %d ...\n", port);
+    printf("client connection closed.\n");
     ret = close(sfd);
     if ( ret == -1 ){
       perror("close");
