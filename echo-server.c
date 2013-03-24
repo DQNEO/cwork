@@ -1,10 +1,7 @@
 /*
- * $Id: echo-server-1.c,v 1.6 2005/02/19 16:01:53 68user Exp $
- *
- * sample of echo server
+ * a simple echo server
  *
  * original from http://x68000.q-e-d.net/~68user/net/sample/echo-server-1.c
- * 
  */
 
 #include <stdio.h>
@@ -22,11 +19,14 @@
 /* buffer length */
 #define BUF_LEN 256
 
-/* ソケット socket から1行読み込み、読み込んだ文字列を p に格納する。
-   改行コードを読み込む前にソケットから read できなくなった場合は、
-   その時点で呼び出し元に戻る。
+/* 
+   read a line from socket,
+   store it to a variable 'p'
 
-   戻り値で読み込んだ文字数を返す。p は \0 でターミネートする。
+   return if the server can no longer read from socket.
+
+   return strlen
+   regard \0 as end of string
 */
 int read_line(int socket, char *p){
   int len = 0;
