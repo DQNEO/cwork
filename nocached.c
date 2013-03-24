@@ -128,7 +128,6 @@ int main(int argc, char *argv[]){
       read_size = read_line(sfd, buf);
       if ( read_size == 0 ) break;
 
-      printf("message: %s", buf);
       
       //output
       out_string(sfd, "STORED\n");
