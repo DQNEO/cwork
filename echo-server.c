@@ -107,16 +107,16 @@ int main(int argc, char *argv[]){
     /* get client host info */
     peer_host = gethostbyaddr((char *)&peer_sin.sin_addr.s_addr,
 			      sizeof(peer_sin.sin_addr), AF_INET);
+
     if ( peer_host == NULL ){
       printf("gethostbyname failed\n");
-      exit(1);
+    } else {
+      printf("new conection from client:%s [%s] port %d\n",
+	     peer_host->h_name,
+	     inet_ntoa(peer_sin.sin_addr),
+	     ntohs(peer_sin.sin_port)
+	     );
     }
-
-    printf("conection:%s [%s] port %d\n",
-	   peer_host->h_name,
-	   inet_ntoa(peer_sin.sin_addr),
-	   ntohs(peer_sin.sin_port)
-	   );
 
     while (1){
       int read_size;
