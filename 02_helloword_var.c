@@ -1,6 +1,6 @@
 #include <stdio.h>
 main()
 {
-  char string[] = "hello word var\n";
+  char string[] = "hello world\n";
   printf("%s", string);
 }
