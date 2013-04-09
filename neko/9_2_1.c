@@ -1,3 +1,5 @@
+/* ”L‚Å‚à‚í‚©‚éCŒ¾Œê */
+/* ‘æ9Í@\‘¢‘Ì  */
 #include <stdio.h>
 #include <string.h>
 
