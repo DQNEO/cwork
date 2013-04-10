@@ -9,14 +9,12 @@ main()
 {
     MYDATA data;
 
-    printf("あなたの名前は？:");
+    printf("あなたの名前:");
     gets(data.name);
 
-    printf("あなたのメルアドは？:");
+    printf("あなたのメルアド:");
     gets(data.email);
     
-
     printf("あなたの情報:{name:%s, email：%s}\n", data.name, data.email);
 
 }
-
