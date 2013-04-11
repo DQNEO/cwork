@@ -49,23 +49,27 @@ int menu_input()
 int meibo_input(LPMYDATA lp)
 {
 	int index = 0;
+	LPMYDATA lp_target = lp + index;
+	
 	printf("-- INPUT --\n");
 	printf("your name:");
-	gets((lp + index)->name);
+	gets(lp_target->name);
 	printf("your email:");
-	gets((lp + index)->email);
+	gets(lp_target->email);
 }
 
 int meibo_output(LPMYDATA lp)
 {
 	int index = 0;
+	LPMYDATA lp_target = lp + index;
+
 	printf("-- OUTPUT --\n");
 
-	if (strcmp((lp + index)->name ,"") == 0) {
+	if (strcmp(lp_target->name ,"") == 0) {
 		printf("NO DATA\n");
 		return -1;
 	}
 
-	printf("name  : %s\n", (lp + index)->name);
-	printf("email : %s\n", (lp + index)->email);
+	printf("name  : %s\n", lp_target->name);
+	printf("email : %s\n", lp_target->email);
 }
