@@ -50,6 +50,8 @@ int menu_input()
 int meibo_input(LPMYDATA lp)
 {
 	int index = index_input();
+	if (index == -1) return -1;
+
 	LPMYDATA lp_target = lp + index;
 
 	printf("-- INPUT [%d]--\n", index);
@@ -62,6 +64,8 @@ int meibo_input(LPMYDATA lp)
 int meibo_output(LPMYDATA lp)
 {
 	int index = index_input();
+	if (index == -1) return -1;
+
 	LPMYDATA lp_target = lp + index;
 
 	printf("-- OUTPUT [%d]--\n", index);
@@ -81,6 +85,11 @@ int index_input()
 	char s[8];
 	printf("Index?[0-9]:");
 	gets(s);
+	if (s[0] < '0' || s[0] > '9') {
+		printf("Bad Index\n");
+		return -1;
+	}
+
 	s[1] = '\0';
 	return atoi(s);
 }
