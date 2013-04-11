@@ -10,6 +10,7 @@ typedef struct _TAG_MYDATA
 int menu_input();
 int meibo_input(LPMYDATA);
 int meibo_output(LPMYDATA);
+int index_input();
 
 main()
 {
@@ -48,7 +49,7 @@ int menu_input()
 
 int meibo_input(LPMYDATA lp)
 {
-	int index = 0;
+	int index = index_input();
 	LPMYDATA lp_target = lp + index;
 
 	printf("-- INPUT [%d]--\n", index);
@@ -60,7 +61,7 @@ int meibo_input(LPMYDATA lp)
 
 int meibo_output(LPMYDATA lp)
 {
-	int index = 0;
+	int index = index_input();
 	LPMYDATA lp_target = lp + index;
 
 	printf("-- OUTPUT [%d]--\n", index);
@@ -72,4 +73,14 @@ int meibo_output(LPMYDATA lp)
 
 	printf("name  : %s\n", lp_target->name);
 	printf("email : %s\n", lp_target->email);
+}
+
+
+int index_input()
+{
+	char s[8];
+	printf("Index?[0-9]:");
+	gets(s);
+	s[1] = '\0';
+	return atoi(s);
 }
