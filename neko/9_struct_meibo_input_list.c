@@ -50,8 +50,8 @@ int meibo_input(LPMYDATA lp)
 {
 	int index = 0;
 	LPMYDATA lp_target = lp + index;
-	
-	printf("-- INPUT --\n");
+
+	printf("-- INPUT [%d]--\n", index);
 	printf("your name:");
 	gets(lp_target->name);
 	printf("your email:");
@@ -63,7 +63,7 @@ int meibo_output(LPMYDATA lp)
 	int index = 0;
 	LPMYDATA lp_target = lp + index;
 
-	printf("-- OUTPUT --\n");
+	printf("-- OUTPUT [%d]--\n", index);
 
 	if (strcmp(lp_target->name ,"") == 0) {
 		printf("NO DATA\n");
