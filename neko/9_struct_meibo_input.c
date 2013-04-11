@@ -14,16 +14,12 @@ main()
 {
 	MYDATA data = {"",""};
 	LPMYDATA lp = &data;
-	int menuno;
 	while(1) {
-		menuno = menu_input();
-		switch(menuno) {
+		switch(menu_input()) {
 			case 1:
-				printf("-- INPUT --\n");
 				meibo_input(lp);
 				break;
 			case 2:
-				printf("-- OUTPUT --\n");
 				meibo_output(lp);
 				break;
 			default:
@@ -36,31 +32,32 @@ main()
 int menu_input()
 {
 	printf(
-		"==== MENU =====\n"
+		"==== MENU ====\n"
 		"1. INPUT  MEIBO\n"
 		"2. OUTPUT MEIBO\n"
 		"3. EXIT\n"
 		"> "
 		);
 
-	char ret[8];
-	gets(ret);
-
-	return atoi(ret);
+	char s[8];
+	gets(s);
+	return atoi(s);
 }
 
 int meibo_input(LPMYDATA lp)
 {
+	printf("-- INPUT --\n");
 	printf("your name:");
 	gets(lp->name);
 	printf("your email:");
 	gets(lp->email);
-
 }
 
 int meibo_output(LPMYDATA lp)
 {
-	if (!strcmp(lp->name ,"")) {
+	printf("-- OUTPUT --\n");
+
+	if (strcmp(lp->name ,"") == 0) {
 		printf("NO DATA\n");
 		return -1;
 	}
