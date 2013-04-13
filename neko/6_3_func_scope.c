@@ -20,7 +20,7 @@ int main()
 
 int add(int x)
 {
-	int goukei = 0;
+	static int goukei = 0;
 	goukei += x;
 	return goukei;
 }
