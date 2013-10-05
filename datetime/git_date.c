@@ -35,26 +35,27 @@ char *month_names[] = {
 int main()
 {
   time_t t;
-  struct tm *ptm;
+  struct tm *tm;
   t = 1380980291;
-  ptm = localtime(&t);
+  tm = localtime(&t);
 
-  printf("tm_wday = %d\n", ptm->tm_wday);
-  printf("tm_mon = %d\n", ptm->tm_mon);
-  printf("tm_mday = %d\n", ptm->tm_mday);
+  printf("=============\n");
+  printf("tm_wday = %d\n", tm->tm_wday);
+  printf("tm_mon = %d\n", tm->tm_mon);
+  printf("tm_mday = %d\n", tm->tm_mday);
   printf("(tm_hour, tm_min, tm_sec) = (%d, %d, %d)\n",
-	 ptm->tm_hour, ptm->tm_min, ptm->tm_sec);
-  printf("tm_year + 1900 = %d\n", ptm->tm_year + 1900);
+	 tm->tm_hour, tm->tm_min, tm->tm_sec);
+  printf("tm_year + 1900 = %d\n", tm->tm_year + 1900);
   printf("=============\n");
 
 
   // e.g. "Sat Oct 5 18:42:19 2013 +0900"
   printf("%.3s %.3s %d %02d:%02d:%02d %d%c%+05d\n",
-	 weekday_names[ptm->tm_wday],
-	 month_names[ptm->tm_mon],
-	 ptm->tm_mday,
-	 ptm->tm_hour, ptm->tm_min, ptm->tm_sec,
-	 ptm->tm_year + 1900,
+	 weekday_names[tm->tm_wday],
+	 month_names[tm->tm_mon],
+	 tm->tm_mday,
+	 tm->tm_hour, tm->tm_min, tm->tm_sec,
+	 tm->tm_year + 1900,
 	 ' ',
 	 900
 	 );
