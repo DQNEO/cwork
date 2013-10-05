@@ -1,6 +1,5 @@
 /**
  * Gitのコミットログの日付フォーマット処理を再現する
- * e.g. "Sat Oct 5 18:42:19 2013 +0900"
  * 
  * date.cのshow_dateのコードをマネした。
  */
@@ -49,9 +48,15 @@ int main()
   printf("=============\n");
 
 
-  printf("%.3s %.3s\n",
+  // e.g. "Sat Oct 5 18:42:19 2013 +0900"
+  printf("%.3s %.3s %d %02d:%02d:%02d %d%c%+05d\n",
 	 weekday_names[ptm->tm_wday],
-	 month_names[ptm->tm_mon]
+	 month_names[ptm->tm_mon],
+	 ptm->tm_mday,
+	 ptm->tm_hour, ptm->tm_min, ptm->tm_sec,
+	 ptm->tm_year + 1900,
+	 ' ',
+	 900
 	 );
   
   return 0;
