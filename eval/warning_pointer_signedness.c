@@ -18,7 +18,7 @@ int main()
     int *ip;
     unsigned int *uip;
     
-    ip = uip;
+    uip = ip;
     
     return 0;
 }
