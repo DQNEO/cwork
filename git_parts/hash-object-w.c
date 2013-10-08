@@ -17,8 +17,8 @@ void hash_object_w(char *filename)
 	fprintf(stderr, "unable to stat %s\n", filename);
 	exit(1);
     }
-    printf("st.size = %ld\n", st.st_size);
-
+    printf("st.st_size = %ld\n", st.st_size);
+    
 }
 
 
