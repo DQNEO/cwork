@@ -46,16 +46,13 @@ char *sha1_to_hex(const unsigned char *sha1)
     return buffer;
 }
 
-void calc_sha1(const char *body)
+void calc_sha1(const char *body, unsigned long len)
 {
     char *type = "blob";
     int hdrlen;
     char hdr[256];
     unsigned char sha1[41];
-    unsigned long len;
     SHA_CTX c;
-
-    len = strlen(body);
 
     sprintf(hdr, "%s %ld", type, len);
     hdrlen = strlen(hdr) + 1;
@@ -71,7 +68,8 @@ void calc_sha1(const char *body)
 int main()
 {
     char *body = "hello\n";
-    calc_sha1(body);
+
+    calc_sha1(body, strlen(body));
     return 0;
 }
 
